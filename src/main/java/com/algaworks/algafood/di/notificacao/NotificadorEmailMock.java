@@ -5,12 +5,16 @@ import org.springframework.stereotype.Component;
 
 import com.algaworks.algafood.di.modelo.Cliente;
 
-@Profile("prod")
+@Profile("dev")
 @TipoDoNotificador(NivelUrgencia.NORMAL)
 @Component
-public class NotificadorEmail implements Notificador {
+public class NotificadorEmailMock implements Notificador {
 	
 	private boolean caixaAlta;
+	
+	public NotificadorEmailMock() {
+		System.out.println("NotificadorEmailMock");
+	}
 	
 	@Override
 	public void notificar(Cliente cliente, String mensagem) {
@@ -18,7 +22,7 @@ public class NotificadorEmail implements Notificador {
 			mensagem = mensagem.toUpperCase();
 		
 		System.out.printf(
-				"Notificando %s através do e-mail %s: %s\n",
+				"MOCK: Notificando %s através do e-mail %s: %s\n",
 				cliente.getNome(),
 				cliente.getEmail(),
 				mensagem);
