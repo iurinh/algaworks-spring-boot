@@ -10,13 +10,13 @@ import lombok.Data;
 
 @Data
 @Entity
-public class Cozinha {
+public class FormaPagamento {
 
 	@Id 
 	@GeneratedValue(strategy = GenerationType.IDENTITY) 
 	private Long id;
 	
 	@Column(nullable = false) 
-	private String nome;
+	private String descricao;
 	
 }
